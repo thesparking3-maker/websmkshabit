@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Resmi SMK Shalatiyah Bitin - Unggul & Berkarakter</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        emerald: {
+                            600: '#059669',
+                            700: '#047857',
+                            800: '#065f46',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Poppins', sans-serif; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased">
+
+    <!-- Top Bar -->
+    <div class="bg-slate-900 text-slate-300 text-xs sm:text-sm py-2 px-4 sm:px-8 flex flex-col sm:flex-row justify-between items-center gap-2">
+        <div class="flex flex-wrap items-center gap-4">
+            <span><i class="fas fa-envelope text-emerald-400 mr-1.5"></i> info@smkshalatiyahbitin.sch.id</span>
+            <span><i class="fas fa-phone text-emerald-400 mr-1.5"></i> (0511) 1234567</span>
+        </div>
+        <div class="flex items-center gap-4">
+            <span class="bg-emerald-600 text-white px-2.5 py-0.5 rounded-full text-xs font-semibold">Terakreditasi B</span>
+            <button onclick="openAdminModal()" class="text-emerald-400 hover:text-white transition font-medium"><i class="fas fa-lock mr-1"></i> Login Admin</button>
+        </div>
+    </div>
+
+    <!-- Sticky Header Nav -->
+    <header class="sticky top-0 z-40 bg-white/95 backdrop-blur shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-8 py-3.5 flex justify-between items-center">
+            <a href="https://www.smkshalatiyahbitin.sch.id" class="flex items-center gap-3">
+                <!-- Lambang Vektor SVG Kustom Logo SMK Shalatiyah Bitin -->
+                <div class="w-10 h-10 bg-emerald-700 rounded-xl flex items-center justify-center p-1.5 shadow-md text-white">
+                    <svg viewBox="0 0 100 100" class="w-full h-full fill-current">
+                        <path d="M50 5 L90 25 L90 75 L50 95 L10 75 L10 25 Z" fill="#047857" stroke="#ffffff" stroke-width="4"/>
+                        <circle cx="50" cy="50" r="32" fill="#ffffff" stroke="#1e3a8a" stroke-width="3"/>
+                        <path d="M35 50 L50 35 L65 50 L50 65 Z" fill="#059669"/>
+                        <text x="50" y="53" font-size="14" font-weight="bold" fill="#1e3a8a" text-anchor="middle">SMKS</text>
+                    </svg>
+                </div>
+                <div>
+                    <h1 class="font-bold text-lg sm:text-xl text-slate-900 leading-tight">SMK Shalatiyah Bitin</h1>
+                    <p class="text-xs text-slate-500 font-medium">Unggul, Terampil & Berakhlak Mulia</p>
+                </div>
+            </a>
+            <!-- Desktop Nav -->
+            <nav class="hidden lg:flex items-center gap-6 font-medium text-sm text-slate-700">
+                <a href="#beranda" class="hover:text-emerald-600 transition">Beranda</a>
+                <a href="#profil" class="hover:text-emerald-600 transition">Profil</a>
+                <a href="#jurusan" class="hover:text-emerald-600 transition">Jurusan</a>
+                <a href="#akademik" class="hover:text-emerald-600 transition">Akademik</a>
+                <a href="#ppdb" class="hover:text-emerald-600 transition">PPDB</a>
+                <a href="#informasi" class="hover:text-emerald-600 transition">Informasi</a>
+                <a href="#ppdb" class="bg-emerald-600 hover:bg-emerald-700 text-white px-5 py-2.5 rounded-lg shadow transition">Daftar PPDB</a>
+            </nav>
+            <!-- Mobile Menu Toggle -->
+            <button onclick="toggleMobileMenu()" class="lg:hidden text-slate-700 text-xl focus:outline-none">
+                <i class="fas fa-bars" id="menuIcon"></i>
+            </button>
+        </div>
+        <!-- Mobile Dropdown -->
+        <div id="mobileMenu" class="hidden lg:hidden bg-white border-t border-slate-100 px-6 py-4 space-y-3 font-medium text-sm">
+            <a href="#beranda" class="block hover:text-emerald-600">Beranda</a>
+            <a href="#profil" class="block hover:text-emerald-600">Profil</a>
+            <a href="#jurusan" class="block hover:text-emerald-600">Jurusan</a>
+            <a href="#akademik" class="block hover:text-emerald-600">Akademik</a>
+            <a href="#ppdb" class="block hover:text-emerald-600">PPDB</a>
+            <a href="#informasi" class="block hover:text-emerald-600">Informasi</a>
+            <a href="#ppdb" class="block text-center bg-emerald-600 text-white py-2 rounded-lg">Daftar PPDB</a>
+        </div>
+    </header>
+
+    <!-- Hero Banner dengan HTTPS Image Background -->
+    <section id="beranda" class="relative bg-slate-900 text-white py-24 px-4 sm:px-8 bg-cover bg-center" style="background-image: linear-gradient(to bottom, rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.9)), url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1600&q=80')">
+        <div class="max-w-4xl mx-auto text-center space-y-6">
+            <span class="inline-block bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider">Penerimaan Peserta Didik Baru Tahun 2026/2027</span>
+            <h2 class="text-3xl sm:text-5xl font-bold tracking-tight leading-tight">Wujudkan Masa Depan Gemilang Bersama SMK Shalatiyah Bitin</h2>
+            <p class="text-slate-300 text-base sm:text-lg max-w-2xl mx-auto font-light">Pendidikan kejuruan berkualitas tinggi yang memadukan penguasaan teknologi modern, keterampilan vokasi, dan pembentukan karakter Islami.</p>
+            <div class="flex flex-wrap justify-center gap-4 pt-4">
+                <a href="#ppdb" class="bg-emerald-600 hover:bg-emerald-700 text-white font-medium px-8 py-3.5 rounded-xl shadow-lg transition">Daftar PPDB Online</a>
+                <button onclick="openCekKelulusan()" class="bg-white/10 hover:bg-white/20 border border-white/20 text-white font-medium px-8 py-3.5 rounded-xl backdrop-blur transition"><i class="fas fa-search mr-2"></i> Cek Kelulusan</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistik Banner -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-8 -mt-12 relative z-20">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
+            <div class="bg-white p-6 rounded-2xl shadow-xl border-b-4 border-emerald-600 text-center">
+                <div class="text-3xl sm:text-4xl font-extrabold text-emerald-600 mb-1">470</div>
+                <div class="text-slate-500 text-xs sm:text-sm font-medium">Siswa Aktif</div>
+            </div>
+            <div class="bg-white p-6 rounded-2xl shadow-xl border-b-4 border-emerald-600 text-center">
+                <div class="text-3xl sm:text-4xl font-extrabold text-emerald-600 mb-1">35</div>
+                <div class="text-slate-500 text-xs sm:text-sm font-medium">Guru & Staff Ahli</div>
+            </div>
+            <div class="bg-white p-6 rounded-2xl shadow-xl border-b-4 border-emerald-600 text-center">
+                <div class="text-3xl sm:text-4xl font-extrabold text-emerald-600 mb-1">4</div>
+                <div class="text-slate-500 text-xs sm:text-sm font-medium">Program Keahlian</div>
+            </div>
+            <div class="bg-white p-6 rounded-2xl shadow-xl border-b-4 border-emerald-600 text-center">
+                <div class="text-3xl sm:text-4xl font-extrabold text-emerald-600 mb-1">100%</div>
+                <div class="text-slate-500 text-xs sm:text-sm font-medium">Lulusan Kompeten</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Profil & Tab Informasi -->
+    <section id="profil" class="max-w-7xl mx-auto px-4 sm:px-8 py-20">
+        <div class="text-center max-w-2xl mx-auto mb-12">
+            <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 mb-3">Profil & Kelembagaan Sekolah</h2>
+            <p class="text-slate-600 text-sm">Mengenal lebih dekat sejarah, visi misi, struktur organisasi, dan tenaga pendidik profesional kami.</p>
+        </div>
+        <!-- Tab Navigation -->
+        <div class="flex flex-wrap justify-center gap-2 mb-8">
+            <button onclick="switchTab('sejarah')" id="btn-sejarah" class="px-5 py-2.5 rounded-xl font-medium text-sm transition bg-emerald-600 text-white shadow">Sejarah Singkat</button>
+            <button onclick="switchTab('visimisi')" id="btn-visimisi" class="px-5 py-2.5 rounded-xl font-medium text-sm transition bg-white text-slate-700 border hover:bg-slate-100">Visi & Misi</button>
+            <button onclick="switchTab('struktur')" id="btn-struktur" class="px-5 py-2.5 rounded-xl font-medium text-sm transition bg-white text-slate-700 border hover:bg-slate-100">Struktur Organisasi</button>
+            <button onclick="switchTab('guru')" id="btn-guru" class="px-5 py-2.5 rounded-xl font-medium text-sm transition bg-white text-slate-700 border hover:bg-slate-100">Daftar Guru</button>
+        </div>
+        <!-- Tab Contents -->
+        <div class="bg-white p-8 sm:p-10 rounded-2xl shadow-sm border border-slate-100">
+            <!-- Sejarah -->
+            <div id="tab-sejarah" class="tab-content space-y-4">
+                <h3 class="text-xl font-bold text-slate-900">Sejarah Perkembangan SMK Shalatiyah Bitin</h3>
+                <p class="text-slate-600 leading-relaxed">SMK Shalatiyah Bitin didirikan dengan komitmen tinggi untuk mencetak generasi muda yang siap kerja, mandiri, dan berakhlak mulia. Berawal dari yayasan pendidikan Islam yang peduli terhadap kemajuan keterampilan anak bangsa di daerah, sekolah ini terus berkembang pesat dengan fasilitas modern serta kurikulum yang disesuaikan dengan kebutuhan dunia industri dan dunia kerja (IDUKA).</p>
+                <p class="text-slate-600 leading-relaxed">Hingga kini, SMK Shalatiyah Bitin telah meluluskan ratusan alumni yang tersebar di berbagai instansi pemerintah, swasta, wirausaha mandiri, maupun melanjutkan studi ke perguruan tinggi ternama.</p>
+            </div>
+            <!-- Visi Misi -->
+            <div id="tab-visimisi" class="tab-content hidden space-y-6">
+                <div>
+                    <h3 class="text-lg font-bold text-slate-900 mb-2"><i class="fas fa-eye text-emerald-600 mr-2"></i> Visi</h3>
+                    <p class="text-slate-600 bg-slate-50 p-4 rounded-xl border-l-4 border-emerald-600">"Menjadi sekolah kejuruan yang unggul, berkarakter Islami, terampil, serta berdaya saing global dalam penguasaan ilmu pengetahuan dan teknologi."</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold text-slate-900 mb-2"><i class="fas fa-bullseye text-emerald-600 mr-2"></i> Misi</h3>
+                    <ul class="list-disc list-inside space-y-2 text-slate-600 bg-slate-50 p-4 rounded-xl">
+                        <li><strong>Pendidikan Berkarakter Islami:</strong> Menanamkan nilai-nilai keimanan, ketakwaan, serta akhlak mulia dalam seluruh kegiatan pembelajaran dan pembiasaan sehari-hari di lingkungan sekolah.</li>
+                        <li><strong>Pembelajaran Vokasi Berkualitas:</strong> Menyelenggarakan pendidikan kejuruan yang adaptif, inovatif, dan berstandar industri pada setiap kompetensi keahlian (TJKT, TBSM, MP, dan DP).</li>
+                        <li><strong>Pengembangan Kompetensi & Keahlian:</strong> Membekali peserta didik dengan keterampilan hard skills dan soft skills yang relevan dengan kebutuhan Dunia Usaha dan Dunia Industri (DU/DI).</li>
+                        <li><strong>Kemitraan Industri:</strong> Menjalin kerja sama yang erat dengan berbagai instansi, perusahaan, dan dunia industri melalui praktik kerja lapangan (PKL) serta penyerapan lulusan.</li>
+                        <li><strong>Jiwa Kewirausahaan (Entrepreneurship):</strong> Mengembangkan kemandirian dan jiwa kewirausahaan siswa agar mampu berinovasi dan bersaing secara mandiri setelah lulus.</li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Struktur Organisasi -->
+            <div id="tab-struktur" class="tab-content hidden text-center space-y-6">
+                <h3 class="text-xl font-bold text-slate-900">Struktur Organisasi Sekolah</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+                    <div class="bg-slate-50 p-6 rounded-xl border">
+                        <div class="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center text-2xl mx-auto mb-3 font-bold">KS</div>
+                        <h4 class="font-bold text-slate-900">Kepala Sekolah</h4>
+                        <p class="text-xs text-slate-500">H. Ahmad Fauzi, S.Pd., M.M.</p>
+                    </div>
+                    <div class="bg-slate-50 p-6 rounded-xl border">
+                        <div class="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center text-2xl mx-auto mb-3 font-bold">WK</div>
+                        <h4 class="font-bold text-slate-900">Wakil Kepala Kurikulum</h4>
+                        <p class="text-xs text-slate-500">Siti Aminah, S.Pd.</p>
+                    </div>
+                    <div class="bg-slate-50 p-6 rounded-xl border">
+                        <div class="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center text-2xl mx-auto mb-3 font-bold">HU</div>
+                        <h4 class="font-bold text-slate-900">Kepala Urusan Tata Usaha</h4>
+                        <p class="text-xs text-slate-500">Muhammad Riduan, S.E.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Daftar Guru -->
+            <div id="tab-guru" class="tab-content hidden space-y-6">
+                <h3 class="text-xl font-bold text-slate-900 mb-4">Dewan Guru & Tenaga Kependidikan</h3>
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                    <div class="bg-slate-50 p-4 rounded-xl text-center border">
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80" class="w-20 h-20 rounded-full mx-auto mb-3 object-cover shadow" alt="Guru">
+                        <h4 class="font-bold text-sm text-slate-900">Dra. Hj. Nurul Huda</h4>
+                        <p class="text-xs text-emerald-600 font-medium">Guru Produktif MP</p>
+                    </div>
+                    <div class="bg-slate-50 p-4 rounded-xl text-center border">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80" class="w-20 h-20 rounded-full mx-auto mb-3 object-cover shadow" alt="Guru">
+                        <h4 class="font-bold text-sm text-slate-900">Ahmad Zaini, S.Kom.</h4>
+                        <p class="text-xs text-emerald-600 font-medium">Guru Produktif TJKT</p>
+                    </div>
+                    <div class="bg-slate-50 p-4 rounded-xl text-center border">
+                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=80" class="w-20 h-20 rounded-full mx-auto mb-3 object-cover shadow" alt="Guru">
+                        <h4 class="font-bold text-sm text-slate-900">Rahmat Hidayat, S.T.</h4>
+                        <p class="text-xs text-emerald-600 font-medium">Guru Produktif TBSM</p>
+                    </div>
+                    <div class="bg-slate-50 p-4 rounded-xl text-center border">
+                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=200&q=80" class="w-20 h-20 rounded-full mx-auto mb-3 object-cover shadow" alt="Guru">
+                        <h4 class="font-bold text-sm text-slate-900">Nurul Latifah, S.Pd.</h4>
+                        <p class="text-xs text-emerald-600 font-medium">Guru Produktif DP</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Katalog 4 Jurusan -->
+    <section id="jurusan" class="bg-slate-100 py-20 px-4 sm:px-8">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 mb-3">Program Keahlian (4 Jurusan)</h2>
+                <p class="text-slate-600 text-sm">Pilih bidang keahlian masa depan Anda yang didukung fasilitas praktik standar industri.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- TJKT -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition border border-slate-200 flex flex-col">
+                    <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=500&q=80" class="h-48 w-full object-cover" alt="TJKT">
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <span class="bg-emerald-100 text-emerald-800 text-xs font-semibold px-2.5 py-1 rounded-md">Unggulan</span>
+                            <h3 class="text-lg font-bold text-slate-900 mt-2 mb-2">TJKT</h3>
+                            <p class="text-xs font-medium text-slate-500 mb-3">Teknik Jaringan Komputer & Telekomunikasi</p>
+                            <p class="text-slate-600 text-xs leading-relaxed">Mempelajari perakitan komputer, instalasi LAN/WAN, administrasi server jaringan, fiber optik, dan keamanan cyber.</p>
+                        </div>
+                        <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs text-emerald-600 font-semibold">
+                            <span>Peluang Kerja Luas</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </div>
+                </div>
+                <!-- TBSM -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition border border-slate-200 flex flex-col">
+                    <img src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?auto=format&fit=crop&w=500&q=80" class="h-48 w-full object-cover" alt="TBSM">
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <span class="bg-emerald-100 text-emerald-800 text-xs font-semibold px-2.5 py-1 rounded-md">Praktik Nyata</span>
+                            <h3 class="text-lg font-bold text-slate-900 mt-2 mb-2">TBSM</h3>
+                            <p class="text-xs font-medium text-slate-500 mb-3">Teknik Bisnis Sepeda Motor</p>
+                            <p class="text-slate-600 text-xs leading-relaxed">Fokus pada perawatan mesin injeksi, tune-up sepeda motor, kelistrikan kendaraan ringan, serta manajemen bengkel mandiri.</p>
+                        </div>
+                        <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs text-emerald-600 font-semibold">
+                            <span>Standar AHASS</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </div>
+                </div>
+                <!-- MP -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition border border-slate-200 flex flex-col">
+                    <img src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=500&q=80" class="h-48 w-full object-cover" alt="MP">
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <span class="bg-emerald-100 text-emerald-800 text-xs font-semibold px-2.5 py-1 rounded-md">Profesional</span>
+                            <h3 class="text-lg font-bold text-slate-900 mt-2 mb-2">MP</h3>
+                            <p class="text-xs font-medium text-slate-500 mb-3">Manajemen Perkantoran</p>
+                            <p class="text-slate-600 text-xs leading-relaxed">Menguasai administrasi perkantoran modern, korespondensi bisnis, kearsipan digital, public relations, dan tata kelola sekretari.</p>
+                        </div>
+                        <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs text-emerald-600 font-semibold">
+                            <span>Siap Kerja Instansi</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </div>
+                </div>
+                <!-- DP -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition border border-slate-200 flex flex-col">
+                    <img src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?auto=format&fit=crop&w=500&q=80" class="h-48 w-full object-cover" alt="DP">
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <span class="bg-emerald-100 text-emerald-800 text-xs font-semibold px-2.5 py-1 rounded-md">Kreatif</span>
+                            <h3 class="text-lg font-bold text-slate-900 mt-2 mb-2">DP</h3>
+                            <p class="text-xs font-medium text-slate-500 mb-3">Desain Busana</p>
+                            <p class="text-slate-600 text-xs leading-relaxed">Mencetak desainer muda berbakat dalam pembuatan pola busana, teknik menjahit haute couture, fashion illustration, dan produksi konveksi.</p>
+                        </div>
+                        <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs text-emerald-600 font-semibold">
+                            <span>Kreatif & Mandiri</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fasilitas & Ekstrakurikuler -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-8 py-20">
+        <div class="text-center max-w-2xl mx-auto mb-12">
+            <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 mb-3">Fasilitas & Ekstrakurikuler</h2>
+            <p class="text-slate-600 text-sm">Menunjang bakat akademik dan non-akademik siswa melalui fasilitas lengkap dan kegiatan positif.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+            <!-- Fasilitas -->
+            <div>
+                <h3 class="text-xl font-bold text-slate-900 mb-6 flex items-center"><i class="fas fa-building text-emerald-600 mr-2.5"></i> Fasilitas Unggulan</h3>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="bg-white p-4 rounded-xl border shadow-sm flex items-center gap-3">
+                        <div class="bg-emerald-100 text-emerald-600 p-3 rounded-lg"><i class="fas fa-desktop"></i></div>
+                        <div>
+                            <h4 class="font-bold text-sm text-slate-900">Lab Komputer</h4>
+                            <p class="text-xs text-slate-500">AC & Internet Cepat</p>
+                        </div>
+                    </div>
+                    <div class="bg-white p-4 rounded-xl border shadow-sm flex items-center gap-3">
+                        <div class="bg-emerald-100 text-emerald-600 p-3 rounded-lg"><i class="fas fa-tools"></i></div>
+                        <div>
+                            <h4 class="font-bold text-sm text-slate-900">Bengkel TBSM</h4>
+                            <p class="text-xs text-slate-500">Alat Standar Industri</p>
+                        </div>
+                    </div>
+                    <div class="bg-white p-4 rounded-xl border shadow-sm flex items-center gap-3">
+                        <div class="bg-emerald-100 text-emerald-600 p-3 rounded-lg"><i class="fas fa-book"></i></div>
+                        <div>
+                            <h4 class="font-bold text-sm text-slate-900">E-Library</h4>
+                            <p class="text-xs text-slate-500">Ribuan E-Book</p>
+                        </div>
+                    </div>
+                    <div class="bg-white p-4 rounded-xl border shadow-sm flex items-center gap-3">
+                        <div class="bg-emerald-100 text-emerald-600 p-3 rounded-lg"><i class="fas fa-mosque"></i></div>
+                        <div>
+                            <h4 class="font-bold text-sm text-slate-900">Musholla</h4>
+                            <p class="text-xs text-slate-500">Luas & Nyaman</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Ekstrakurikuler -->
+            <div>
+                <h3 class="text-xl font-bold text-slate-900 mb-6 flex items-center"><i class="fas fa-trophy text-emerald-600 mr-2.5"></i> Ekstrakurikuler Pilihan</h3>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="bg-white p-4 rounded-xl border shadow-sm flex items-center gap-3">
+                        <div class="bg-emerald-100 text-emerald-600 p-3 rounded-lg"><i class="fas fa-users"></i></div>
+                        <div>
+                            <h4 class="font-bold text-sm text-slate-900">OSIS</h4>
+                            <p class="text-xs text-slate-500">Organisasi Siswa</p>
+                        </div>
+                    </div>
+                    <div class="bg-white p-4 rounded-xl border shadow-sm flex items-center gap-3">
+                        <div class="bg-emerald-100 text-emerald-600 p-3 rounded-lg"><i class="fas fa-campground"></i></div>
+                        <div>
+                            <h4 class="font-bold text-sm text-slate-900">Pramuka</h4>
+                            <p class="text-xs text-slate-500">Kepanduan Wajib</p>
+                        </div>
+                    </div>
+                    <div class="bg-white p-4 rounded-xl border shadow-sm flex items-center gap-3">
+                        <div class="bg-emerald-100 text-emerald-600 p-3 rounded-lg"><i class="fas fa-hand-holding-medical"></i></div>
+                        <div>
+                            <h4 class="font-bold text-sm text-slate-900">UKS</h4>
+                            <p class="text-xs text-slate-500">Kesehatan Remaja</p>
+                        </div>
+                    </div>
+                    <div class="bg-white p-4 rounded-xl border shadow-sm flex items-center gap-3">
+                        <div class="bg-emerald-100 text-emerald-600 p-3 rounded-lg"><i class="fas fa-flag"></i></div>
+                        <div>
+                            <h4 class="font-bold text-sm text-slate-900">Paskibra</h4>
+                            <p class="text-xs text-slate-500">Pasukan Pengibar Bendera</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fitur Akademik -->
+    <section id="akademik" class="bg-slate-900 text-white py-20 px-4 sm:px-8">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <h2 class="text-2xl sm:text-3xl font-bold mb-3">Layanan & Fitur Akademik</h2>
+                <p class="text-slate-400 text-sm">Kemudahan akses informasi akademik untuk siswa, orang tua, dan guru dalam satu genggaman.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                <!-- Kalender -->
+                <div class="bg-slate-800 p-6 rounded-2xl border border-slate-700 text-center flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 bg-emerald-600/20 text-emerald-400 rounded-2xl flex items-center justify-center text-xl mx-auto mb-4"><i class="fas fa-calendar-alt"></i></div>
+                        <h3 class="font-bold text-lg mb-2">Kalender Akademik</h3>
+                        <p class="text-xs text-slate-400 mb-6">Jadwal lengkap kegiatan belajar mengajar, ujian, dan libur tahun 2026/2027.</p>
+                    </div>
+                    <button onclick="simulasiUnduhPDF()" class="bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold py-2.5 px-4 rounded-xl transition w-full"><i class="fas fa-download mr-1.5"></i> Unduh PDF Kalender</button>
+                </div>
+                <!-- E-Library -->
+                <div class="bg-slate-800 p-6 rounded-2xl border border-slate-700 text-center flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 bg-emerald-600/20 text-emerald-400 rounded-2xl flex items-center justify-center text-xl mx-auto mb-4"><i class="fas fa-book-reader"></i></div>
+                        <h3 class="font-bold text-lg mb-2">E-Library Digital</h3>
+                        <p class="text-xs text-slate-400 mb-6">Akses ribuan modul pelajaran, buku digital, dan referensi kejuruan secara gratis.</p>
+                    </div>
+                    <button onclick="alert('Membuka Katalog E-Library Digital SMK Shalatiyah Bitin...')" class="bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold py-2.5 px-4 rounded-xl transition w-full"><i class="fas fa-book-open mr-1.5"></i> Baca Modul</button>
+                </div>
+                <!-- Portal Siswa -->
+                <div class="bg-slate-800 p-6 rounded-2xl border border-slate-700 text-center flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 bg-emerald-600/20 text-emerald-400 rounded-2xl flex items-center justify-center text-xl mx-auto mb-4"><i class="fas fa-laptop-code"></i></div>
+                        <h3 class="font-bold text-lg mb-2">Portal Siswa (LMS)</h3>
+                        <p class="text-xs text-slate-400 mb-6">Learning Management System untuk tugas harian, ujian online, dan absensi digital.</p>
+                    </div>
+                    <button onclick="alert('Silakan login menggunakan NISN dan Password Anda di portal LMS.')" class="bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold py-2.5 px-4 rounded-xl transition w-full"><i class="fas fa-sign-in-alt mr-1.5"></i> Masuk LMS</button>
+                </div>
+                <!-- Portal Orang Tua -->
+                <div class="bg-slate-800 p-6 rounded-2xl border border-slate-700 text-center flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 bg-emerald-600/20 text-emerald-400 rounded-2xl flex items-center justify-center text-xl mx-auto mb-4"><i class="fas fa-user-friends"></i></div>
+                        <h3 class="font-bold text-lg mb-2">Portal Orang Tua</h3>
+                        <p class="text-xs text-slate-400 mb-6">Pantau perkembangan nilai rapor, kehadiran, dan pembayaran sekolah anak secara real-time.</p>
+                    </div>
+                    <button onclick="alert('Fitur pemantauan Orang Tua terhubung dengan database siswa.')" class="bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold py-2.5 px-4 rounded-xl transition w-full"><i class="fas fa-eye mr-1.5"></i> Cek Nilai Anak</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Form PPDB Online & Pengumuman -->
+    <section id="ppdb" class="max-w-4xl mx-auto px-4 sm:px-8 py-20">
+        <div class="bg-white p-8 sm:p-12 rounded-3xl shadow-xl border border-slate-100">
+            <div class="text-center mb-10">
+                <span class="bg-emerald-100 text-emerald-800 text-xs font-semibold px-3 py-1 rounded-full">Pendaftaran Online</span>
+                <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 mt-2 mb-2">Formulir PPDB SMK Shalatiyah Bitin</h2>
+                <p class="text-slate-600 text-sm">Isi data diri calon peserta didik baru dengan lengkap dan benar.</p>
+            </div>
+            <form id="ppdbForm" onsubmit="handlePPDBSubmit(event)" class="space-y-6">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-700 mb-2">Nama Lengkap Calon Siswa</label>
+                        <input type="text" id="namaSiswa" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:border-emerald-600 text-sm" placeholder="Contoh: Ahmad Rizki">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-700 mb-2">Nomor Induk Siswa Nasional (NISN)</label>
+                        <input type="text" id="nisnSiswa" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:border-emerald-600 text-sm" placeholder="10 digit NISN">
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-700 mb-2">Nomor WhatsApp Aktif</label>
+                        <input type="tel" id="waSiswa" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:border-emerald-600 text-sm" placeholder="08xxxxxxxxxx">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-700 mb-2">Asal Sekolah (SMP/MTS)</label>
+                        <input type="text" id="asalSekolah" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:border-emerald-600 text-sm" placeholder="Nama Sekolah Asal">
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-slate-700 mb-3">Pilihan Program Keahlian (Jurusan)</label>
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                        <label class="flex items-center space-x-3 p-3.5 rounded-xl border border-slate-200 cursor-pointer hover:border-emerald-600 transition">
+                            <input type="radio" name="jurusanPilihan" value="TJKT" required class="text-emerald-600 focus:ring-emerald-500">
+                            <span class="text-sm font-medium text-slate-800">TJKT</span>
+                        </label>
+                        <label class="flex items-center space-x-3 p-3.5 rounded-xl border border-slate-200 cursor-pointer hover:border-emerald-600 transition">
+                            <input type="radio" name="jurusanPilihan" value="TBSM" required class="text-emerald-600 focus:ring-emerald-500">
+                            <span class="text-sm font-medium text-slate-800">TBSM</span>
+                        </label>
+                        <label class="flex items-center space-x-3 p-3.5 rounded-xl border border-slate-200 cursor-pointer hover:border-emerald-600 transition">
+                            <input type="radio" name="jurusanPilihan" value="MP" required class="text-emerald-600 focus:ring-emerald-500">
+                            <span class="text-sm font-medium text-slate-800">MP</span>
+                        </label>
+                        <label class="flex items-center space-x-3 p-3.5 rounded-xl border border-slate-200 cursor-pointer hover:border-emerald-600 transition">
+                            <input type="radio" name="jurusanPilihan" value="DP" required class="text-emerald-600 focus:ring-emerald-500">
+                            <span class="text-sm font-medium text-slate-800">DP</span>
+                        </label>
+                    </div>
+                </div>
+                <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-semibold py-4 rounded-xl shadow-lg transition text-sm">Kirim Pendaftaran PPDB</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Informasi Publik & Berita Terbaru -->
+    <section id="informasi" class="bg-slate-100 py-20 px-4 sm:px-8">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 mb-3">Berita & Informasi Publik</h2>
+                <p class="text-slate-600 text-sm">Ikuti perkembangan terbaru, kegiatan sekolah, dan pengumuman resmi.</p>
+            </div>
+            <div id="dynamicNewsContainer" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-200">
+                    <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=500&q=80" class="h-48 w-full object-cover" alt="Berita">
+                    <div class="p-6">
+                        <span class="text-xs text-emerald-600 font-semibold">12 Mei 2026</span>
+                        <h3 class="font-bold text-slate-900 text-base mt-1 mb-2">Pelaksanaan Uji Kompetensi Keahlian (UKK) Tahun 2026</h3>
+                        <p class="text-xs text-slate-600 leading-relaxed">Siswa kelas XII seluruh jurusan mengikuti rangkaian UKK dengan penguji langsung dari dunia industri dan mitra kerja resmi.</p>
+                    </div>
+                </div>
+                <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-200">
+                    <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=500&q=80" class="h-48 w-full object-cover" alt="Berita">
+                    <div class="p-6">
+                        <span class="text-xs text-emerald-600 font-semibold">28 April 2026</span>
+                        <h3 class="font-bold text-slate-900 text-base mt-1 mb-2">Jalin Kerja Sama Industri dengan Perusahaan Teknologi</h3>
+                        <p class="text-xs text-slate-600 leading-relaxed">SMK Shalatiyah Bitin memperluas jaringan penempatan kerja magang (PKL) bagi siswa jurusan TJKT dan MP di kota besar.</p>
+                    </div>
+                </div>
+                <div class="bg-white rounded-2xl overflow-hidden shadow-sm border border-slate-200">
+                    <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=500&q=80" class="h-48 w-full object-cover" alt="Berita">
+                    <div class="p-6">
+                        <span class="text-xs text-emerald-600 font-semibold">15 April 2026</span>
+                        <h3 class="font-bold text-slate-900 text-base mt-1 mb-2">Sosialisasi PPDB 2026/2027 ke SMP/MTs Wilayah Sekitar</h3>
+                        <p class="text-xs text-slate-600 leading-relaxed">Tim sosialisasi sekolah mendatangi sekolah menengah pertama untuk memaparkan keunggulan program kejuruan dan fasilitas sekolah.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WhatsApp Floating Button dengan Tautan HTTPS Resmi -->
+    <a href="https://wa.me/6281234567890?text=Halo%20Admin%20SMK%20Shalatiyah%20Bitin,%20saya%20ingin%20bertanya%20mengenai..." target="_blank" rel="noopener noreferrer" class="fixed bottom-6 right-6 bg-emerald-600 hover:bg-emerald-700 text-white w-14 h-14 rounded-full flex items-center justify-center text-2xl shadow-2xl z-50 transition transform hover:scale-110">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 py-12 px-4 sm:px-8 border-t border-slate-800 text-sm">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+            <div>
+                <h3 class="text-white font-bold text-base mb-3">SMK Shalatiyah Bitin</h3>
+                <p class="text-xs leading-relaxed">Sekolah Menengah Kejuruan modern pilihan utama yang mencetak lulusan terampil, mandiri, profesional, dan berakhlak mulia.</p>
+            </div>
+            <div>
+                <h3 class="text-white font-bold text-base mb-3">Tautan Cepat</h3>
+                <ul class="space-y-2 text-xs">
+                    <li><a href="#profil" class="hover:text-emerald-400 transition">Profil Sekolah</a></li>
+                    <li><a href="#jurusan" class="hover:text-emerald-400 transition">Program Keahlian</a></li>
+                    <li><a href="#akademik" class="hover:text-emerald-400 transition">Akademik & E-Library</a></li>
+                    <li><a href="#ppdb" class="hover:text-emerald-400 transition">PPDB Online</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="text-white font-bold text-base mb-3">Program Kejuruan</h3>
+                <ul class="space-y-2 text-xs">
+                    <li><a href="#jurusan" class="hover:text-emerald-400 transition">TJKT (Komputer & Jaringan)</a></li>
+                    <li><a href="#jurusan" class="hover:text-emerald-400 transition">TBSM (Teknik Sepeda Motor)</a></li>
+                    <li><a href="#jurusan" class="hover:text-emerald-400 transition">MP (Manajemen Perkantoran)</a></li>
+                    <li><a href="#jurusan" class="hover:text-emerald-400 transition">DP (Desain Busana)</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="text-white font-bold text-base mb-3">Kontak & Lokasi Resmi</h3>
+                <p class="text-xs mb-2">
+                    <i class="fas fa-map-marker-alt text-emerald-400 mr-2"></i> 
+                    Jl. Keramat No. 173, Bitin, Kec. Danau Panggang, Kab. Hulu Sungai Utara, Kalimantan Selatan.
+                </p>
+                <p class="text-xs mb-3">
+                    <a href="https://www.bing.com/search?q=smks%20shalatiyah%20bitin" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-emerald-400 hover:underline font-semibold">
+                        <i class="fas fa-external-link-alt mr-1.5"></i> Lihat Peta & Detail Lokasi
+                    </a>
+                </p>
+                <p class="text-xs mb-2"><i class="fas fa-envelope text-emerald-400 mr-2"></i> info@smkshalatiyahbitin.sch.id</p>
+                <p class="text-xs"><i class="fas fa-phone text-emerald-400 mr-2"></i> (0511) 1234567</p>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto pt-8 border-t border-slate-800 text-center text-xs">
+            &copy; 2026 SMK Shalatiyah Bitin. Hak Cipta Dilindungi Undang-Undang.
+        </div>
+    </footer>
+
+    <!-- MODAL: Cek Hasil Seleksi Kelulusan -->
+    <div id="kelulusanModal" class="hidden fixed inset-0 bg-slate-900/70 z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl p-6 sm:p-8 max-w-md w-full shadow-2xl relative">
+            <button onclick="closeCekKelulusan()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600"><i class="fas fa-times text-lg"></i></button>
+            <h3 class="text-xl font-bold text-slate-900 mb-2">Cek Hasil Seleksi PPDB</h3>
+            <p class="text-xs text-slate-500 mb-6">Masukkan NISN terdaftar untuk melihat status kelulusan Anda.</p>
+            <div class="space-y-4">
+                <div>
+                    <label class="block text-xs font-semibold text-slate-700 mb-2">Nomor NISN</label>
+                    <input type="text" id="cekNisnInput" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:border-emerald-600 text-sm" placeholder="Masukkan 10 digit NISN">
+                </div>
+                <button onclick="prosesCekKelulusan()" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-semibold py-3 rounded-xl transition text-sm">Cek Status Kelulusan</button>
+                <div id="hasilKelulusanBox" class="hidden p-4 rounded-xl text-center text-sm font-medium"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL: Login Admin -->
+    <div id="adminLoginModal" class="hidden fixed inset-0 bg-slate-900/70 z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl p-6 sm:p-8 max-w-sm w-full shadow-2xl relative">
+            <button onclick="closeAdminModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600"><i class="fas fa-times text-lg"></i></button>
+            <div class="text-center mb-6">
+                <div class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-2xl flex items-center justify-center text-xl mx-auto mb-3"><i class="fas fa-lock"></i></div>
+                <h3 class="text-xl font-bold text-slate-900">Login Administrator</h3>
+                <p class="text-xs text-slate-500 mt-1">Masukkan kredensial khusus admin</p>
+            </div>
+            <div class="space-y-4">
+                <div>
+                    <label class="block text-xs font-semibold text-slate-700 mb-1">Username</label>
+                    <input type="text" id="adminUser" value="admin" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-emerald-600">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-slate-700 mb-1">Password</label>
+                    <input type="password" id="adminPass" value="admin123" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-emerald-600">
+                </div>
+                <button onclick="prosesLoginAdmin()" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-semibold py-3 rounded-xl transition text-sm">Masuk Dashboard</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- DASHBOARD PANEL ADMINISTRATOR -->
+    <div id="adminDashboard" class="hidden fixed inset-0 bg-slate-900 z-50 overflow-y-auto p-4 sm:p-8 text-slate-800">
+        <div class="max-w-7xl mx-auto bg-slate-50 rounded-3xl shadow-2xl overflow-hidden min-h-[90vh] flex flex-col">
+            <div class="bg-slate-900 text-white px-6 sm:px-8 py-5 flex justify-between items-center">
+                <div class="flex items-center gap-3">
+                    <div class="bg-emerald-600 text-white p-2 rounded-xl"><i class="fas fa-tachometer-alt"></i></div>
+                    <div>
+                        <h2 class="font-bold text-lg">Panel Administrator Super</h2>
+                        <p class="text-xs text-slate-400">SMK Shalatiyah Bitin Control Center</p>
+                    </div>
+                </div>
+                <button onclick="closeAdminDashboard()" class="bg-rose-600 hover:bg-rose-700 text-white px-4 py-2 rounded-xl text-xs font-semibold transition"><i class="fas fa-sign-out-alt mr-1"></i> Keluar Admin</button>
+            </div>
+            <div class="p-6 sm:p-8 flex-1 space-y-8">
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                    <div class="bg-white p-6 rounded-2xl border shadow-sm flex items-center justify-between">
+                        <div>
+                            <p class="text-xs font-semibold text-slate-500">Total Pendaftar PPDB</p>
+                            <h3 id="statTotalPendaftar" class="text-2xl font-extrabold text-slate-900 mt-1">1</h3>
+                        </div>
+                        <div class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-xl flex items-center justify-center text-xl"><i class="fas fa-users"></i></div>
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl border shadow-sm flex items-center justify-between">
+                        <div>
+                            <p class="text-xs font-semibold text-slate-500">Status Sistem</p>
+                            <h3 class="text-lg font-bold text-emerald-600 mt-1">Aktif & Online</h3>
+                        </div>
+                        <div class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-xl flex items-center justify-center text-xl"><i class="fas fa-server"></i></div>
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl border shadow-sm flex items-center justify-between">
+                        <div>
+                            <p class="text-xs font-semibold text-slate-500">Tahun Ajaran</p>
+                            <h3 class="text-lg font-bold text-slate-900 mt-1">2026/2027</h3>
+                        </div>
+                        <div class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-xl flex items-center justify-center text-xl"><i class="fas fa-calendar"></i></div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 sm:p-8 rounded-2xl border shadow-sm">
+                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
+                        <div>
+                            <h3 class="font-bold text-lg text-slate-900">Manajemen Pendaftar PPDB Online</h3>
+                            <p class="text-xs text-slate-500">Verifikasi, terima, atau hapus data calon siswa masuk.</p>
+                        </div>
+                        <button onclick="exportDataCSV()" class="bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 rounded-xl text-xs font-semibold transition"><i class="fas fa-file-excel mr-1.5"></i> Export Data CSV / Excel</button>
+                    </div>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left border-collapse text-xs">
+                            <thead>
+                                <tr class="bg-slate-100 text-slate-700 uppercase font-semibold">
+                                    <th class="p-3.5 rounded-l-xl">Nama Siswa</th>
+                                    <th class="p-3.5">NISN</th>
+                                    <th class="p-3.5">No. WhatsApp</th>
+                                    <th class="p-3.5">Asal Sekolah</th>
+                                    <th class="p-3.5">Jurusan</th>
+                                    <th class="p-3.5">Status</th>
+                                    <th class="p-3.5 rounded-r-xl text-center">Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody id="adminPendaftarTableBody" class="divide-y divide-slate-100">
+                                <tr class="hover:bg-slate-50">
+                                    <td class="p-3.5 font-medium text-slate-900">Muhammad Alif</td>
+                                    <td class="p-3.5 text-slate-600">0081234567</td>
+                                    <td class="p-3.5 text-slate-600">081234567890</td>
+                                    <td class="p-3.5 text-slate-600">SMPN 1 Bitin</td>
+                                    <td class="p-3.5"><span class="bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded font-semibold">TJKT</span></td>
+                                    <td class="p-3.5"><span class="bg-amber-100 text-amber-800 px-2 py-0.5 rounded font-semibold">Menunggu</span></td>
+                                    <td class="p-3.5 text-center space-x-2">
+                                        <button onclick="verifikasiSiswa(0)" class="bg-emerald-600 hover:bg-emerald-700 text-white px-2.5 py-1 rounded text-xs">Terima</button>
+                                        <button onclick="hapusSiswa(0)" class="bg-rose-600 hover:bg-rose-700 text-white px-2.5 py-1 rounded text-xs">Hapus</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Interaksi & Fitur -->
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        }
+
+        function switchTab(tabId) {
+            const tabs = ['sejarah', 'visimisi', 'struktur', 'guru'];
+            tabs.forEach(t => {
+                document.getElementById('tab-' + t).classList.add('hidden');
+                document.getElementById('btn-' + t).className = 'px-5 py-2.5 rounded-xl font-medium text-sm transition bg-white text-slate-700 border hover:bg-slate-100';
+            });
+            document.getElementById('tab-' + tabId).classList.remove('hidden');
+            document.getElementById('btn-' + tabId).className = 'px-5 py-2.5 rounded-xl font-medium text-sm transition bg-emerald-600 text-white shadow';
+        }
+
+        function simulasiUnduhPDF() {
+            alert('Mengunduh Kalender Akademik 2026/2027 (PDF)... File berhasil disimpan di perangkat Anda.');
+        }
+
+        let pendaftarList = JSON.parse(localStorage.getItem('ppdb_list')) || [
+            { nama: "Muhammad Alif", nisn: "0081234567", wa: "081234567890", sekolah: "SMPN 1 Bitin", jurusan: "TJKT", status: "Menunggu" }
+        ];
+
+        function handlePPDBSubmit(e) {
+            e.preventDefault();
+            const nama = document.getElementById('namaSiswa').value;
+            const nisn = document.getElementById('nisnSiswa').value;
+            const wa = document.getElementById('waSiswa').value;
+            const sekolah = document.getElementById('asalSekolah').value;
+            const jurusan = document.querySelector('input[name="jurusanPilihan"]:checked').value;
+
+            pendaftarList.push({ nama, nisn, wa, sekolah, jurusan, status: "Menunggu" });
+            localStorage.setItem('ppdb_list', JSON.stringify(pendaftarList));
+            updateAdminTable();
+            
+            alert('Pendaftaran PPDB Berhasil Dikirim! Data Anda telah masuk ke sistem panitia. Simpan NISN Anda untuk pengecekan kelulusan.');
+            document.getElementById('ppdbForm').reset();
+        }
+
+        function updateAdminTable() {
+            const tbody = document.getElementById('adminPendaftarTableBody');
+            tbody.innerHTML = '';
+            pendaftarList.forEach((p, idx) => {
+                const tr = document.createElement('tr');
+                tr.className = 'hover:bg-slate-50';
+                tr.innerHTML = `
+                    <td class="p-3.5 font-medium text-slate-900">${p.nama}</td>
+                    <td class="p-3.5 text-slate-600">${p.nisn}</td>
+                    <td class="p-3.5 text-slate-600">${p.wa}</td>
+                    <td class="p-3.5 text-slate-600">${p.sekolah}</td>
+                    <td class="p-3.5"><span class="bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded font-semibold">${p.jurusan}</span></td>
+                    <td class="p-3.5"><span class="${p.status === 'Diterima' ? 'bg-emerald-100 text-emerald-800' : 'bg-amber-100 text-amber-800'} px-2 py-0.5 rounded font-semibold">${p.status}</span></td>
+                    <td class="p-3.5 text-center space-x-2">
+                        <button onclick="verifikasiSiswa(${idx})" class="bg-emerald-600 hover:bg-emerald-700 text-white px-2.5 py-1 rounded text-xs">Terima</button>
+                        <button onclick="hapusSiswa(${idx})" class="bg-rose-600 hover:bg-rose-700 text-white px-2.5 py-1 rounded text-xs">Hapus</button>
+                    </td>
+                `;
+                tbody.appendChild(tr);
+            });
+            document.getElementById('statTotalPendaftar').textContent = pendaftarList.length;
+        }
+
+        function verifikasiSiswa(idx) {
+            pendaftarList[idx].status = "Diterima";
+            localStorage.setItem('ppdb_list', JSON.stringify(pendaftarList));
+            updateAdminTable();
+            alert('Status siswa berhasil diverifikasi menjadi DITERIMA.');
+        }
+
+        function hapusSiswa(idx) {
+            if(confirm('Apakah Anda yakin ingin menghapus data pendaftar ini?')) {
+                pendaftarList.splice(idx, 1);
+                localStorage.setItem('ppdb_list', JSON.stringify(pendaftarList));
+                updateAdminTable();
+            }
+        }
+
+        function exportDataCSV() {
+            let csvContent = "data:text/csv;charset=utf-8,Nama,NISN,WhatsApp,Asal Sekolah,Jurusan,Status\n";
+            pendaftarList.forEach(p => {
+                csvContent += `"${p.nama}","${p.nisn}","${p.wa}","${p.sekolah}","${p.jurusan}","${p.status}"\n`;
+            });
+            const encodedUri = encodeURI(csvContent);
+            const link = document.createElement("a");
+            link.setAttribute("href", encodedUri);
+            link.setAttribute("download", "data_pendaftar_ppdb_smk_shalatiyah.csv");
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        function openCekKelulusan() {
+            document.getElementById('kelulusanModal').classList.remove('hidden');
+        }
+        function closeCekKelulusan() {
+            document.getElementById('kelulusanModal').classList.add('hidden');
+            document.getElementById('hasilKelulusanBox').classList.add('hidden');
+            document.getElementById('cekNisnInput').value = '';
+        }
+        function prosesCekKelulusan() {
+            const nisn = document.getElementById('cekNisnInput').value.trim();
+            const box = document.getElementById('hasilKelulusanBox');
+            box.classList.remove('hidden');
+            
+            const siswa = pendaftarList.find(p => p.nisn === nisn);
+            if(siswa) {
+                if(siswa.status === 'Diterima') {
+                    box.className = 'p-4 rounded-xl text-center text-sm font-semibold bg-emerald-100 text-emerald-800';
+                    box.innerHTML = `Selamat! ${siswa.nama} (NISN: ${nisn}) dinyatakan <span class="underline">LULUS & DITERIMA</span> di jurusan ${siswa.jurusan} SMK Shalatiyah Bitin.`;
+                } else {
+                    box.className = 'p-4 rounded-xl text-center text-sm font-semibold bg-amber-100 text-amber-800';
+                    box.innerHTML = `Halo ${siswa.nama}, berkas Anda dengan NISN ${nisn} saat ini sedang dalam proses verifikasi panitia.`;
+                }
+            } else {
+                box.className = 'p-4 rounded-xl text-center text-sm font-semibold bg-rose-100 text-rose-800';
+                box.innerHTML = `Data dengan NISN ${nisn} tidak ditemukan. Pastikan Anda sudah mendaftar melalui formulir PPDB online.`;
+            }
+        }
+
+        function openAdminModal() {
+            document.getElementById('adminLoginModal').classList.remove('hidden');
+        }
+        function closeAdminModal() {
+            document.getElementById('adminLoginModal').classList.add('hidden');
+        }
+        function prosesLoginAdmin() {
+            const u = document.getElementById('adminUser').value;
+            const p = document.getElementById('adminPass').value;
+            if(u === 'admin' && p === 'admin123') {
+                closeAdminModal();
+                document.getElementById('adminDashboard').classList.remove('hidden');
+                updateAdminTable();
+            } else {
+                alert('Username atau Password salah! Gunakan admin / admin123');
+            }
+        }
+        function closeAdminDashboard() {
+            document.getElementById('adminDashboard').classList.add('hidden');
+        }
+    </script>
+</body>
+</html>
